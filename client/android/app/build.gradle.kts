@@ -64,4 +64,11 @@ dependencies {
     // Firebase Auth
     implementation(libs.firebase.auth)
     implementation(libs.coroutines.play.services)
+    
+    // UI & Navigation
+    implementation(libs.core.splashscreen)
+    implementation(libs.androidx.navigation.compose)
+    
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
 }
