@@ -2,15 +2,15 @@
 description: initialize the safeme application and setup the core native architectures
 ---
 
-# BriskVTU Native App Setup Workflow
+# SafeMe Native App Setup Workflow
 
 This workflow sets up the SafeMe native applications tailored to the `setup.spec.md`, `setup.ios.spec.md`, and `setup.android.spec.md`.
 
 ## Phase 1: Review Specs
 Review the core platform requirements and brand guidelines.
-- Review `client/specs/setup.spec.md`
-- Review `client/specs/setup.ios.spec.md`
-- Review `client/specs/setup.android.spec.md`
+- Review `client/specs/setup/main.spec.md`
+- Review `client/specs/setup/ios.spec.md`
+- Review `client/specs/setup/android.spec.md`
 
 ## Phase 2: iOS Initialization (Xcode)
 1. **Create the iOS Project**

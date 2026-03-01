@@ -1,5 +1,5 @@
 ---
-description: Implement Login and Profile Setup Flow for BriskVTU
+description: Implement Login and Profile Setup Flow for SafeMe
 ---
 # Implement Login and Profile Setup Flow
 
@@ -22,9 +22,9 @@ Before implementing the code, ensure the following project configurations are se
 
 ## 2. Review the Specifications
 Review the flow and UI requirements for the authentication process for the target platform:
-- Review `client/specs/login-profile.spec.md` (Main Flow)
-- Review `client/specs/login-profile.ios.spec.md` (If targeting iOS)
-- Review `client/specs/login-profile.android.spec.md` (If targeting Android)
+- Review `client/specs/auth/main.spec.md` (Main Flow)
+- Review `client/specs/auth/ios.spec.md` (If targeting iOS)
+- Review `client/specs/auth/android.spec.md` (If targeting Android)
 
 ## 3. Implement the Login Screen
 - **iOS (SwiftUI):** Create the view using `TextField` and custom `Picker` for country code. Use `FirebaseAuth` to trigger `PhoneAuthProvider.provider().verifyPhoneNumber()`.

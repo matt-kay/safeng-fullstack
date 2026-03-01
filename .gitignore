@@ -39,12 +39,33 @@ client/android/.gradle/
 client/android/local.properties
 client/android/.idea/
 client/android/build/
+client/android/app/build/
 client/android/captures/
 client/android/.externalNativeBuild/
 client/android/.cxx/
 client/android/app/debug/
 client/android/app/profile/
 client/android/app/release/
+
+# Native iOS / Xcode
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+client/ios/Pods/
+client/ios/.symlinks/
+
 
 # Code generation tools
 *.g.dart
