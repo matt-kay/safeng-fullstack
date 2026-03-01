@@ -25,6 +25,7 @@ import com.solutioncrafts.safeme.data.preferences.AppPreferences
 import com.solutioncrafts.safeme.ui.auth.LoginScreen
 import com.solutioncrafts.safeme.ui.auth.SetupProfileScreen
 import com.solutioncrafts.safeme.ui.auth.VerificationScreen
+import com.solutioncrafts.safeme.ui.features.MainScreen
 import com.solutioncrafts.safeme.ui.onboarding.OnboardingScreen
 import com.solutioncrafts.safeme.ui.splash.WelcomeViewModel
 import com.solutioncrafts.safeme.ui.theme.SafeMeTheme
@@ -117,7 +118,7 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
                             composable("home") {
-                                Greeting("Home Screen", Modifier.fillMaxSize())
+                                MainScreen()
                             }
                         }
                     }

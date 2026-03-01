@@ -28,14 +28,7 @@ struct ContentView: View {
             case .auth:
                 LoginView()
             case .home:
-                // Stub for Home
-                VStack {
-                    Text("Home Screen")
-                    Button("Simulate Logout") {
-                        try? Auth.auth().signOut()
-                        appState = .auth
-                    }
-                }
+                MainTabView()
             }
         }
     }
