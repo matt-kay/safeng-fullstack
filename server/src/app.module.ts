@@ -15,6 +15,8 @@ import { RolesGuard } from './common/guards/roles.guard';
 import { TripGuardModule } from './modules/trip-guard/trip-guard.module';
 import { VehicleMatcherModule } from './modules/vehicle-matcher/vehicle-matcher.module';
 import { IncidentsModule } from './modules/incidents/incidents.module';
+import { PickupModule } from './modules/pickup/pickup.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 @Module({
   imports: [
@@ -57,6 +59,10 @@ import { IncidentsModule } from './modules/incidents/incidents.module';
     UsersModule,
     RiskEngineModule,
     TripGuardModule,
+    IncidentsModule,
+    VehicleMatcherModule,
+    PickupModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [
