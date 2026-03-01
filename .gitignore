@@ -1,0 +1,107 @@
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+venv/
+ENV/
+.env
+
+# Rust
+target/
+
+# IDE
+.idea/
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.pub-cache/
+.pub/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Native Android
+client/android/*.iml
+client/android/.gradle/
+client/android/local.properties
+client/android/.idea/
+client/android/build/
+client/android/captures/
+client/android/.externalNativeBuild/
+client/android/.cxx/
+client/android/app/debug/
+client/android/app/profile/
+client/android/app/release/
+
+# Code generation tools
+*.g.dart
+*.freezed.dart
+
+# Firebase config files
+GoogleService-Info.plist
+google-services.json
+
+# --- Added from server/.gitignore ---
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Firebase cache
+.firebase/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage
+.nyc_output
+
+# dataconnect generated files
+.dataconnect
+
+# Server Build and Misc
+lib-cov
+.grunt
+bower_components
+.lock-wscript
+build/Release
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+
+# Sensitive Files and Secrets
+*.pem
+*.key
+*.keystore
+*.jks
+*.p12
+*.pkcs12
+*.pfx
+*credentials*.json
+service-account*.json
+*secrets*.json
+.env.*
+!.env.example
