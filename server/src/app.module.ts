@@ -13,6 +13,8 @@ import { APP_GUARD } from '@nestjs/core';
 import { FirebaseAuthGuard } from './common/guards/firebase-auth.guard';
 import { RolesGuard } from './common/guards/roles.guard';
 import { TripGuardModule } from './modules/trip-guard/trip-guard.module';
+import { VehicleMatcherModule } from './modules/vehicle-matcher/vehicle-matcher.module';
+import { IncidentsModule } from './modules/incidents/incidents.module';
 
 @Module({
   imports: [
@@ -69,4 +71,4 @@ import { TripGuardModule } from './modules/trip-guard/trip-guard.module';
     },
   ],
 })
-export class AppModule {}
+export class AppModule { }
