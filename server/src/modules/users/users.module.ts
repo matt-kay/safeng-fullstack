@@ -14,23 +14,23 @@ import { USER_REPOSITORY_TOKEN } from './domain/repositories/user-repository.int
 import { FirebaseService } from '../../infrastructure/firebase/firebase.service';
 
 @Module({
-    controllers: [UsersController, AdminUsersController],
-    providers: [
-        // Provide the actual repository but don't export it directly using the token yet.
-        UserRepository,
-        {
-            provide: USER_REPOSITORY_TOKEN,
-            useFactory: (repo: UserRepository, firebaseService: FirebaseService) => {
-                return new AuditLoggingDecorator(repo, firebaseService);
-            },
-            inject: [UserRepository, FirebaseService],
-        },
-        GetUserProfileQuery,
-        CreateUserProfileCommand,
-        UpdateUserProfileCommand,
-        SoftDeleteUserCommand,
-        PermanentDeleteUserCommand,
-    ],
-    exports: [USER_REPOSITORY_TOKEN],
+  controllers: [UsersController, AdminUsersController],
+  providers: [
+    // Provide the actual repository but don't export it directly using the token yet.
+    UserRepository,
+    {
+      provide: USER_REPOSITORY_TOKEN,
+      useFactory: (repo: UserRepository, firebaseService: FirebaseService) => {
+        return new AuditLoggingDecorator(repo, firebaseService);
+      },
+      inject: [UserRepository, FirebaseService],
+    },
+    GetUserProfileQuery,
+    CreateUserProfileCommand,
+    UpdateUserProfileCommand,
+    SoftDeleteUserCommand,
+    PermanentDeleteUserCommand,
+  ],
+  exports: [USER_REPOSITORY_TOKEN],
 })
-export class UsersModule { }
+export class UsersModule {}

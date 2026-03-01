@@ -2,56 +2,56 @@ import { IsString, IsNumber, IsOptional, IsEnum } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class GetRiskTilesDto {
-    @IsString()
-    city: string;
+  @IsString()
+  city: string;
 
-    @IsString()
-    bbox: string; // "minLng,minLat,maxLng,maxLat"
+  @IsString()
+  bbox: string; // "minLng,minLat,maxLng,maxLat"
 
-    @IsNumber()
-    @Type(() => Number)
-    zoom: number;
+  @IsNumber()
+  @Type(() => Number)
+  zoom: number;
 
-    @IsOptional()
-    @IsString()
-    timebucket?: string = 'default';
+  @IsOptional()
+  @IsString()
+  timebucket?: string = 'default';
 }
 
 export class GetRiskHereDto {
-    @IsString()
-    city: string;
+  @IsString()
+  city: string;
 
-    @IsNumber()
-    @Type(() => Number)
-    lat: number;
+  @IsNumber()
+  @Type(() => Number)
+  lat: number;
 
-    @IsNumber()
-    @Type(() => Number)
-    lng: number;
+  @IsNumber()
+  @Type(() => Number)
+  lng: number;
 
-    @IsOptional()
-    @IsString()
-    time?: string;
+  @IsOptional()
+  @IsString()
+  time?: string;
 }
 
 export class GetRouteRiskDto {
-    @IsString()
-    city: string;
+  @IsString()
+  city: string;
 
-    @IsString()
-    polyline: string;
+  @IsString()
+  polyline: string;
 
-    @IsOptional()
-    @IsString()
-    time?: string;
+  @IsOptional()
+  @IsString()
+  time?: string;
 }
 
 export class GetTopCorridorsDto {
-    @IsString()
-    city: string;
+  @IsString()
+  city: string;
 
-    @IsOptional()
-    @IsNumber()
-    @Type(() => Number)
-    limit?: number = 20;
+  @IsOptional()
+  @IsNumber()
+  @Type(() => Number)
+  limit?: number = 20;
 }

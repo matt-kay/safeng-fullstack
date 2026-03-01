@@ -11,7 +11,9 @@ export class FirebaseService implements OnModuleInit {
 
   onModuleInit() {
     if (!admin.apps.length) {
-      const isEmulatorEnabled = this.configService.get<string>('FIREBASE_AUTH_EMULATOR_HOST') || this.configService.get<string>('FIRESTORE_EMULATOR_HOST');
+      const isEmulatorEnabled =
+        this.configService.get<string>('FIREBASE_AUTH_EMULATOR_HOST') ||
+        this.configService.get<string>('FIRESTORE_EMULATOR_HOST');
 
       this.firebaseApp = admin.initializeApp({
         credential: admin.credential.applicationDefault(),
@@ -20,9 +22,13 @@ export class FirebaseService implements OnModuleInit {
       });
 
       if (isEmulatorEnabled) {
-        this.logger.log('Initializing Firebase Admin SDK using Emulator configuration.');
+        this.logger.log(
+          'Initializing Firebase Admin SDK using Emulator configuration.',
+        );
       } else {
-        this.logger.log('Initializing Firebase Admin SDK using Application Default Credentials.');
+        this.logger.log(
+          'Initializing Firebase Admin SDK using Application Default Credentials.',
+        );
       }
     } else {
       this.firebaseApp = admin.app();

@@ -12,6 +12,7 @@ import { ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { FirebaseAuthGuard } from './common/guards/firebase-auth.guard';
 import { RolesGuard } from './common/guards/roles.guard';
+import { TripGuardModule } from './modules/trip-guard/trip-guard.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { RolesGuard } from './common/guards/roles.guard';
     FirebaseModule,
     UsersModule,
     RiskEngineModule,
+    TripGuardModule,
   ],
   controllers: [AppController],
   providers: [
@@ -67,4 +69,4 @@ import { RolesGuard } from './common/guards/roles.guard';
     },
   ],
 })
-export class AppModule { }
+export class AppModule {}

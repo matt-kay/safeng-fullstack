@@ -14,20 +14,20 @@ import { HotspotRepository } from './repositories/hotspot.repository';
 import { SegmentRepository } from './repositories/segment.repository';
 
 @Module({
-    imports: [
-        TypeOrmModule.forFeature([HotspotGrid, RouteSegmentRisk, CityRiskConfig]),
-        BullModule.registerQueue({ name: 'risk-rollup' }),
-    ],
-    controllers: [RiskController],
-    providers: [
-        RiskService,
-        TileService,
-        ScoringService,
-        SpikeService,
-        SegmentService,
-        HotspotRepository,
-        SegmentRepository,
-    ],
-    exports: [RiskService, TileService, SegmentService],
+  imports: [
+    TypeOrmModule.forFeature([HotspotGrid, RouteSegmentRisk, CityRiskConfig]),
+    BullModule.registerQueue({ name: 'risk-rollup' }),
+  ],
+  controllers: [RiskController],
+  providers: [
+    RiskService,
+    TileService,
+    ScoringService,
+    SpikeService,
+    SegmentService,
+    HotspotRepository,
+    SegmentRepository,
+  ],
+  exports: [RiskService, TileService, SegmentService],
 })
-export class RiskEngineModule { }
+export class RiskEngineModule {}
