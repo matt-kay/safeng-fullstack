@@ -10,7 +10,7 @@ struct LoginView: View {
     @State private var verificationID: String = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 20) {
                 Text("Enter your phone number")
                     .font(.title2)
@@ -67,13 +67,9 @@ struct LoginView: View {
                 .padding(.horizontal)
                 
                 Spacer()
-                
-                // Navigation Link
-                NavigationLink(
-                    destination: VerificationView(verificationID: verificationID, phoneNumber: "\(countryCode)\(phoneNumber)"),
-                    isActive: $navigateToVerify,
-                    label: { EmptyView() }
-                )
+            }
+            .navigationDestination(isPresented: $navigateToVerify) {
+                VerificationView(verificationID: verificationID, phoneNumber: "\(countryCode)\(phoneNumber)")
             }
             .padding(.top, 40)
             .navigationBarHidden(true)

@@ -1,13 +1,14 @@
 import Foundation
+import Combine
 
 struct CreateIncidentRequest: Encodable {
-    val type: String
-    val description: String
-    val lat: Double
-    val lng: Double
-    val reporter_hash: String
-    val city: String
-    val plate: String?
+    let type: String
+    let description: String
+    let lat: Double
+    let lng: Double
+    let reporter_hash: String
+    let city: String
+    let plate: String?
 }
 
 struct IncidentResponse: Decodable, Identifiable {
@@ -56,7 +57,7 @@ class IncidentsViewModel: ObservableObject {
                 city: city,
                 plate: plate
             )
-            let endpoint = APIEndpoint(path: "/incidents", method: .post, body: request)
+            let endpoint = APIEndpoint(path: "/incidents", method: "POST", body: try? JSONEncoder().encode(request))
             _ = try await APIClient.shared.request(endpoint, responseType: IncidentResponse.self)
             
             submissionSuccess = true

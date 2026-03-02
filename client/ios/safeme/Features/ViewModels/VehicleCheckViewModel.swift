@@ -1,12 +1,13 @@
 import Foundation
+import Combine
 
 struct VehicleCheckRequest: Encodable {
-    val city: String
-    val plate: String?
-    val platePartial: String?
-    val vehicleMake: String?
-    val vehicleColor: String?
-    val transportType: String?
+    let city: String
+    let plate: String?
+    let platePartial: String?
+    let vehicleMake: String?
+    let vehicleColor: String?
+    let transportType: String?
     
     init(city: String, plate: String? = nil, platePartial: String? = nil, vehicleMake: String? = nil, vehicleColor: String? = nil, transportType: String? = nil) {
         self.city = city
@@ -38,8 +39,8 @@ class VehicleCheckViewModel: ObservableObject {
             let request = VehicleCheckRequest(city: city, plate: plate, platePartial: platePartial)
             let endpoint = APIEndpoint(
                 path: "/vehicle/check",
-                method: .post,
-                body: request
+                method: "POST",
+                body: try? JSONEncoder().encode(request)
             )
             
             checkResult = try await APIClient.shared.request(endpoint, responseType: VehicleCheckResponse.self)

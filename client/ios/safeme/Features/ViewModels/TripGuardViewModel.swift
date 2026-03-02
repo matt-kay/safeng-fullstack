@@ -1,8 +1,9 @@
 import Foundation
+import Combine
 
 struct StartTripRequest: Encodable {
-    val city: String
-    val transportType: String
+    let city: String
+    let transportType: String
 }
 
 struct TripResponse: Decodable {
@@ -23,7 +24,7 @@ struct TelemetryBatchRequest: Encodable {
 }
 
 struct TelemetryResponse: Decodable {
-    let anomalyDetected: Boolean
+    let anomalyDetected: Bool
     let riskScore: Double
 }
 
@@ -45,7 +46,7 @@ class TripGuardViewModel: ObservableObject {
     func startMonitoring(city: String, transportType: String) async {
         do {
             let request = StartTripRequest(city: city, transportType: transportType)
-            let endpoint = APIEndpoint(path: "/trip-guard/start", method: .post, body: request)
+            let endpoint = APIEndpoint(path: "/trip-guard/start", method: "POST", body: try? JSONEncoder().encode(request))
             
             let response = try await APIClient.shared.request(endpoint, responseType: TripResponse.self)
             self.tripId = response.tripId
@@ -82,7 +83,7 @@ class TripGuardViewModel: ObservableObject {
                 reports: [report]
             )
             
-            let endpoint = APIEndpoint(path: "/trip-guard/telemetry", method: .post, body: batch)
+            let endpoint = APIEndpoint(path: "/trip-guard/telemetry", method: "POST", body: try? JSONEncoder().encode(batch))
             let response = try await APIClient.shared.request(endpoint, responseType: TelemetryResponse.self)
             
             self.currentRisk = response.riskScore
@@ -99,7 +100,7 @@ class TripGuardViewModel: ObservableObject {
         
         do {
             let request = PanicRequest(tripId: tripId, lat: 9.0765, lng: 7.3986)
-            let endpoint = APIEndpoint(path: "/trip-guard/panic", method: .post, body: request)
+            let endpoint = APIEndpoint(path: "/trip-guard/panic", method: "POST", body: try? JSONEncoder().encode(request))
             _ = try await APIClient.shared.request(endpoint, responseType: [String: String].self)
         } catch {
             print("Error triggering panic: \(error)")

@@ -41,7 +41,7 @@ struct TripGuardView: View {
                     
                     Spacer()
                     
-                    Button(action: { isTripStarted = false }) {
+                    Button(action: { viewModel.stopMonitoring() }) {
                         Text("End Trip Safely")
                             .foregroundColor(.white)
                             .padding()

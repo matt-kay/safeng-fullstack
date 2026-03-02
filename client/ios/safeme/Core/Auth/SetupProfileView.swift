@@ -63,12 +63,9 @@ struct SetupProfileView: View {
             .padding(.horizontal)
             
             Spacer()
-            
-            NavigationLink(
-                destination: Text("Home Screen"), // Replace with actual HomeView
-                isActive: $navigateToHome,
-                label: { EmptyView() }
-            )
+        }
+        .navigationDestination(isPresented: $navigateToHome) {
+            Text("Home Screen") // Replace with actual HomeView
         }
         .padding(.top, 40)
         .navigationBarBackButtonHidden(true)

@@ -56,18 +56,12 @@ struct VerificationView: View {
             .padding(.horizontal)
             
             Spacer()
-            
-            // Navigation Links
-            NavigationLink(
-                destination: Text("Home Screen"), // Replace with actual HomeView later
-                isActive: $navigateToHome,
-                label: { EmptyView() }
-            )
-            NavigationLink(
-                destination: SetupProfileView(phoneNumber: phoneNumber),
-                isActive: $navigateToSetupProfile,
-                label: { EmptyView() }
-            )
+        }
+        .navigationDestination(isPresented: $navigateToHome) {
+            Text("Home Screen") // Replace with actual HomeView later
+        }
+        .navigationDestination(isPresented: $navigateToSetupProfile) {
+            SetupProfileView(phoneNumber: phoneNumber)
         }
         .padding(.top, 40)
     }

@@ -22,7 +22,7 @@ struct ContentView: View {
                     }
             case .onboarding:
                 OnboardingView()
-                    .onChange(of: isFirstLaunch) { _ in
+                    .onChange(of: isFirstLaunch) {
                         determineNextState()
                     }
             case .auth:
